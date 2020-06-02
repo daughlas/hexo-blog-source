@@ -137,6 +137,11 @@ HTTP/1.1协议中共定义了八种方法（也叫“动作”）来以不同方
 
 
 
+
+## GET 和 POST 区别
+GET和POST本质上就是TCP链接，并无差别。但是由于HTTP的规定和浏览器/服务器的限制，导致他们在应用过程中体现出一些不同。 GET和POST还有一个重大区别，简单的说：GET产生一个TCP数据包；POST产生两个TCP数据包。
+
+对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200（返回数据）； 而对于POST，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200 ok（返回数据）。
 ## 参考资料
 1. 慕课网 Scott [老师的进击的《Node.js基础（一）》](http://www.imooc.com/learn/348)
 2. 维基百科词条：[超文本传输协议](https://www.wikiwand.com/zh/超文本传输协议)
