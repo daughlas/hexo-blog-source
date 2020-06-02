@@ -43,7 +43,7 @@ vim /ect/hostname
 
 ### 文件目录结构
 
- ![image-20191109062349992](/Users/lvjiawen/Library/Application Support/typora-user-images/image-20191109062349992.png)
+ ![image-20191109062349992](/images/image-20191109062349992.png)
 
 /home 普通用户的 ~ 目录，root 用户的 家目录是 /root
 
@@ -67,7 +67,7 @@ lib 和 lib64 链接到 usr/lib64和usr/lib 系统的库文件
 
 ### 操作系统的时区修改
 
-![image-20191109063942086](/Users/lvjiawen/Library/Application Support/typora-user-images/image-20191109063942086.png)
+![image-20191109063942086](/images/image-20191109063942086.png)
 
 `date -R` 查看时区
 

@@ -476,3 +476,83 @@ merge$.subscribe(val => {
 })
 ```
 
+
+
+## 流的好处
+
+#### 同步和异步统一的代码
+
+```
+function getDataP() {
+  if (a) {
+    return Promise.resolve(a)
+  } else {
+    return AJAX.get('a')
+  }
+}
+
+getDataP().then(data => {
+  // Promise 只有一个返回值，响应一次
+  console.log(data)
+})
+
+service.on('task', data => {
+  // render
+})
+
+service.getData()   // 加了这么一句来主动触发请求
+```
+
+
+
+```
+function getDataO() {
+  if (a) {
+    return Observable.of(a)
+  } else {
+    return Observable.fromPromise(AJAX.get('a'))
+  }
+}
+
+getDataO().subscribe(data => {
+  // Observable 可以有多个返回值，响应多次
+  // do render
+  console.log(data)
+})
+
+
+const A$ = Observable.interval(1000)
+const B$ = Observable.of(3)
+const C$ = Observable.from([5, 6, 7])
+
+const D$ = C$.toArray()
+  .map(arr => arr.reduce((a, b) => a + b), 0)
+const E$ = Observable.combineLatest(A$, B$, D$)
+   .map(arr => arr.reduce((a, b) => a + b), 0)
+```
+
+
+
+
+
+在业务开发中，我们时常遇到这么一种场景：
+
+已过滤排序的列表中加入一条新数据，要重新按照这条规则走一遍。
+
+我用一个简单的类比来描述这件事：
+
+> 每个进教室的同学都可以得到一颗糖
+
+这句话表达了两个含义：
+
+- 在这句断言产生之前，对于已经在教室里的每个人，都应当去给他们发一颗糖
+- 在这句断言形成以后，再进入这个教室的每个人，都应当得到一颗糖
+
+```
+const final$ = source$.map(filterA).map(sorterA)
+const source$ = start$.merge(patch$)
+```
+
+来源等于初始数据与新增数据的合并。
+
+然后，实现出filterA和sorterA，就完成了整个这段业务逻辑的抽象定义。给start和patch分别进行定义，比如说，start是一个查询，而patch是一个推送，它就是可运行的了。最后，我们在final上添加一个订阅，整个过程就完美地映射到了界面上。

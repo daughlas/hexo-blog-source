@@ -258,9 +258,87 @@ background-color: #fff;
 
 
 
+## a 标签各种状态
+* a:link    {color:blue;}
+* a:visited {color:blue;}
+* a:hover   {color:red;}
+* a:active  {color:yellow;}
 
+## CSS动画
+### 动画的使用
 
+#### 定义关键帧
 
+```
+-webkit- @keyframes 必须有的动画名称{
+	from{background:red;}
+	to{background:yellow;}
+}
+```
 
+####使用动画
 
+```
+div{
+	-webkit-animation: 动画名称 2s;
+}
+```
+
+1. animation-name: 动画名称，必填
+2. animation-duration: 动画时间，必填
+3. animation-timing-function:  缓动函数
+   1. linear 匀速
+   2. ease 缓冲
+   3. ease-in 由慢到快
+   4. 后面还有很多；
+4. animation-delay: 动画延迟
+5. animation-itereation-count: 动画重复进行的次数
+6. animation-play-state:;
+
+### 关键帧的两种写法
+
+#### 第一种 from 和 to
+
+```
+-webkit- @keyframes 必须有的动画名称{
+	from{background:red;}
+	to{background:yellow;}
+}
+```
+
+#### 第二种 百分数
+
+```
+-webkit- @keyframes 必须有的动画名称{
+	0%{background:red;}
+	20%{background:orange;}
+	50%{background:yellow;}
+	70%{background:green;}
+	100%{background:blue;}	
+}
+div{
+	-webkit- animation: 动画名称 持续时间 linear;
+}
+```
+
+### js 控制 css 动画
+
+#### 添加
+
+```
+ocss +="keyframes change{
+	from{background:black}
+	to{background:yellow}
+}"
+var span =  document.getElementsByTagName("span");
+span[1].style.webkitanimation = "change 3s"
+```
+
+#### 监听
+
+```
+obj.addEventListener("webkitAnimationEnd",function(){
+	
+});
+```
 
