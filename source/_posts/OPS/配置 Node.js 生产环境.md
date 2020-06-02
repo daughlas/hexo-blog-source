@@ -15,7 +15,7 @@ tags:
 
 更新
 
-```
+```bash
 sudo yum update
 sudo yum install vim openssl build-essential libssl-dev wget curl git
 sudo yum groupinstall "Development Tools"
@@ -24,7 +24,7 @@ sudo yum install openssl-devel
 
 nvm
 
-```
+```bash
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
 nvm install v6.9.5
 nvm use v6.9.5
@@ -36,13 +36,13 @@ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo s
 
 npm 常用 工具包
 
-```
+```bash
 npm i pm2 webpack gulp grunt-cli -g
 ```
 
 
 
-```
+```bash
 sudo vi /etc/iptables.up.rules
 ```
 
@@ -70,13 +70,13 @@ pm2 logs
 
 停掉阿帕奇(ubuntu)
 
-```
+```bash
 sudo service apache2 stop
 ```
 
 卸载阿帕奇(ubuntu)
 
-```
+```bash
 update-rc.d -f apache2 remove
 
 sudo apt-get remove apache2
@@ -86,7 +86,7 @@ sudo apt-get remove apache2
 
 配置 nginx
 
-```
+```bash
 upstream blog {
 	server 127.0.0.1:8080;
 }

@@ -49,37 +49,37 @@ tags:
 
 2. 字体[Fira Code](https://link.zhihu.com/?target=https%3A//github.com/tonsky/FiraCode/wiki/VS-Code-Instructions)
 
-   ```
-   {
-     "editor.cursorStyle": "block",
-     "editor.fontFamily": "Fira Code",
-     "editor.fontLigatures": true,
-     "editor.fontSize": 16,
-     "editor.lineHeight": 24,
-     "editor.lineNumbers": "on",
-     "editor.minimap.enabled": false,
-     "editor.renderIndentGuides": false,
-     "editor.rulers": [120],
-     "workbench.colorTheme": "Solarized Dark",
-     "workbench.iconTheme": "vscode-great-icons"
-   } 
-   ```
+```json
+{
+   "editor.cursorStyle": "block",
+   "editor.fontFamily": "Fira Code",
+   "editor.fontLigatures": true,
+   "editor.fontSize": 16,
+   "editor.lineHeight": 24,
+   "editor.lineNumbers": "on",
+   "editor.minimap.enabled": false,
+   "editor.renderIndentGuides": false,
+   "editor.rulers": [120],
+   "workbench.colorTheme": "Solarized Dark",
+   "workbench.iconTheme": "vscode-great-icons"
+} 
+```
 
    
 
 3. Guides 缩进参考，与内置的缩进参考线不同，Guides 能够让你通过配置项来修改参考线的颜色、样式、缩进空白的背景色等，如果你愿意折腾，甚至能够配置出类似 Indent Rainbow 那样风格的参考线。下图是我使用 Solarized Dark 主题时参考线的配置：
 
-   ```
-   {
-       "guides.normal.color.dark": "rgba(91, 91, 91, 0.6)",
-       "guides.normal.color.light": "rgba(220, 220, 220, 0.7)",
-       "guides.active.color.dark": "rgba(210, 110, 210, 0.6)",
-       "guides.active.color.light": "rgba(200, 100, 100, 0.7)",
-       "guides.active.style": "dashed",
-       "guides.normal.style": "dashed",
-       "guides.stack.style": "dashed",
-   }
-   ```
+```json
+{
+      "guides.normal.color.dark": "rgba(91, 91, 91, 0.6)",
+      "guides.normal.color.light": "rgba(220, 220, 220, 0.7)",
+      "guides.active.color.dark": "rgba(210, 110, 210, 0.6)",
+      "guides.active.color.light": "rgba(200, 100, 100, 0.7)",
+      "guides.active.style": "dashed",
+      "guides.normal.style": "dashed",
+      "guides.stack.style": "dashed",
+}
+```
 
 4. TODO Highlight TODO Highlight 能够帮我们把这些关键词高亮出来
 
@@ -91,25 +91,25 @@ tags:
 
 2. EditorConfig
 
-   ```
-   [*]
-   end_of_line = lf
-   charset = utf-8
-   trim_trailing_whitespace = false
-   insert_final_newline = true
-   indent_style = space
-   indent_size = 2
-   
-   [{*.yml,*.json}]
-   indent_style = space
-   indent_size = 2 
-   ```
+```yml
+[*]
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = false
+insert_final_newline = true
+indent_style = space
+indent_size = 2
+
+[{*.yml,*.json}]
+indent_style = space
+indent_size = 2 
+```
 
 3. [Prettier ](https://link.zhihu.com/?target=https%3A//marketplace.visualstudio.com/items%3FitemName%3Desbenp.prettier-vscode) 格式化代码的工具
 
 #### 智能建议、代码片段、自动补全和插件
 
-```
+```json
 {
   "editor.quickSuggestions": {
     "other": true,

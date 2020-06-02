@@ -15,14 +15,13 @@ tags:
 
 > 声明式与命令式
 
-```
-命令式编程：命令“机器”如何去做事情（how），这样不管你想要的是什么（what），他都会按照你的命令实现
-声明式编程：高速“机器“你想要的是什么（what），让机器想出如何去做(how)
-```
+
+> 命令式编程：命令“机器”如何去做事情（how），这样不管你想要的是什么（what），他都会按照你的命令实现
+> 声明式编程：高速“机器“你想要的是什么（what），让机器想出如何去做(how)
 
 ### 如何返回多个顶级标签
 
-```
+```javascript
 class HelloMessage extends Component {
 	render() {
 		let views = []
@@ -38,7 +37,7 @@ ReactDOM.render(
 
 ### 渲染子节点
 
-```
+```javascript
 class Comp extends Component {
 	render() {
 		return (
@@ -65,7 +64,7 @@ ReactDOM.render(
 
 ### PropTypes
 
-```
+```javascript
 import PropTypes from 'prop-types'
 class Comp extends Component {
 	static propTypes = {
@@ -79,7 +78,7 @@ class Comp extends Component {
 
 ### 默认属性
 
-```
+```javascript
 class Comp extends Component {
 	static defaultProps = {
 		shortName: 'MyTitle'
@@ -96,7 +95,7 @@ class Comp extends Component {
 
 mount 之后才能拿到 $refs
 
-```
+```javascript
 class Alert extends React.Component {
 	showAlert(message) {
 		alert(`Debug:${message}`)
@@ -190,7 +189,7 @@ props 是组件自身无法改变的属性
 
   初始化渲染不会调用该方法
 
-  ```
+  ```javascript
   shouldComponentUpdate(nextProps, nextState) {
   	return true / false
   }

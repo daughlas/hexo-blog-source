@@ -82,7 +82,7 @@ tags:
 
    不是这样
 
-   ```js
+   ```javascript
    res.render('index', {
        "name": student.getDetailById(234234).name
    })
@@ -90,7 +90,7 @@ tags:
 
    而是这样
 
-   ```js
+   ```javascript
    student.getDetailById(234234, function(detail) {
        res.render('index', {
            "name": detail.name

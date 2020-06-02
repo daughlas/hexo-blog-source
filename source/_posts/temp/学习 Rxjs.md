@@ -1,9 +1,16 @@
-
+---
+title:  学习 Rxjs
+date: 
+categories:
+- 临时
+tags:
+- 临时
+---
 ## 基础
 
 `Rx.Observable.fromEvent(element, event)` 可以将一个事件转化为一个流
 
-```
+```javascript
 const height$ = Rx.Observable.fromEvent(heightInput, 'keyup')
 // 每一次抬起键盘打印出一个事件的对象，一大堆
 height$.subscribe(val => {console.log(val)})
@@ -31,7 +38,7 @@ map 是对原始流中的元素进行处理，映射成另一个元素。
 
 pluck 是 map 对于对象的一种特殊应用
 
-```
+```javascript
 var width$ = Rx.Observable.fromEvent(widthInput, 'keyup')
 	.pluck('target', 'value')
 // 下面的代码一样的作用
@@ -41,7 +48,7 @@ var width$ = Rx.Observable.fromEvent(widthInput, 'keyup')
 
 mapTo 后面可以输入一个常量，我只关心你发生了，不管你到底是什么事件
 
-```
+```javascript
 var width$ = Rx.Observable.fromEvent(widthInput, 'keyup')
 	.mapTo(1)
 // 下面的代码效果一样
@@ -68,7 +75,7 @@ subscribe 有三个函数作为参数
 
 
 
-```
+```javascript
 const interval$ = Rx.Observable.interval(100)
 	.filter(val => {
       throw '出错了'
@@ -85,7 +92,7 @@ interval$.subscribe(
 
 
 
-```
+```javascript
 // 直接进入error
 const interval$ = Rx.Observable.throw('出错了');
 // 直接进入结束
@@ -101,7 +108,7 @@ const interval$ = Rx.Observable.never();
 2. take 第几个，first 和 last 是 take 的特殊表达形式
 3. skip省略掉前面的几个东西
 
-```
+```javascript
 const interval$ = Rx.Observable.interval(100);
 // 永远不结束
 interval$.subscribe(
@@ -113,7 +120,7 @@ interval$.subscribe(
 
 
 
-```
+```javascript
 // 取前三个
 const interval$ = Rx.Observable.interval(100).take(3);
 interval$.subscribe(
@@ -125,14 +132,14 @@ interval$.subscribe(
 
 
 
-```
+```javascript
 const timer$ = Rx.Observable.timer(100);
 timer$.subscribe(v => console.log(v));
 ```
 
 
 
-```
+```javascript
 // 第一个参数表示第一次运行的延迟，第二个表示之后间隔运行的时间，timer 相当于包含了 interval 的功能
 const timer$ = Rx.Observable.timer(100, 100);
 timer$.subscribe(v => console.log(v));
@@ -149,7 +156,7 @@ timer$.subscribe(v => console.log(v));
 
 
 
-```
+```javascript
 const logLabel = '当前值是'
 const interval$ = Rx.Observable.interval(100)
 	.map(val => val * 2)
@@ -168,7 +175,7 @@ interval$.subscribe(
 
 
 
-```
+```javascript
 const interval$ = Rx.Observable.interval(100)
 	// 只有当这个条件为真的时候才会把它放行出来
 	.filter(val => val % 2 === 0  )
@@ -184,7 +191,7 @@ interval$.subscribe(
 
 
 
-```
+```javascript
 const interval$ = Rx.Observable.interval(100)
 	.filter(val => val % 2 === 0  )
 	.do(v => console.log('val is ' + v))
@@ -201,7 +208,7 @@ interval$.subscribe(
 
 skip 跳过两个，4，6。。。。。
 
-```
+```javascript
 const interval$ = Rx.Observable.interval(100)
 	.filter(val => val % 2 === 0  )
 	.do(v => console.log('val is ' + v))
@@ -215,7 +222,7 @@ interval$.subscribe(
 
 scan 接受一个函数作为参数，第一个参数增加器，将这一次累加的结果，作为下一次的第一个参数传进去，默认的初始值，第二个参数是序列中当前的发射值，返回的是0，2，6，12，有点像数组的 scan， 记住之前的运算结果
 
-```
+```javascript
 const interval$ = Rx.Observable.interval(100)
 	.filter(val => val % 2 === 0  )
 	.scan((x, y) => {
@@ -233,7 +240,7 @@ interval$.subscribe(
 
 reduce 和 scan 的计算是一样的，它要计算一个最终值，而且也只发射最后的一个值，注意写的时候无限序列不能用reduce
 
-```
+```javascript
 const interval$ = Rx.Observable.interval(100)
 	.filter(val => val % 2 === 0 )
 	.take(4);
@@ -252,7 +259,7 @@ interval$.subscribe(
 
 也可以给 reduce 和 scan 设置初始值，在第一个函数参数的后面写，可以给初始值设置为数组或者字典对象，例如
 
-```
+```javascript
 const interval$ = Rx.Observable.interval(100)
 	.filter(val => val % 2 === 0 )
 	.take(4);
@@ -271,7 +278,7 @@ interval$.subscribe(
 
 写一个 debug.util.ts
 
-```
+```javascript
 import {Observable} from 'rxjs/Observable;
 
 declare module 'rxjs/Observable' {
@@ -314,7 +321,7 @@ Observable.prototype.debug = function(message: string) {
 <input type="number" id="width" />
 ```
 
-```
+```javascript
 const length = document.getElementById('length');
 const width = document.getElementById('length');
 
@@ -327,7 +334,7 @@ length$.subscribe(val => {
 
 debounce 可以接时间，单位是毫秒，也可以接Observable
 
-```
+```javascript
 const length$ = Rx.Observable.fromEvent(length, 'keyup')
 	.pluck('target', 'value')
 	// 300ms 之内的动作不理会的
@@ -339,7 +346,7 @@ length$.subscribe(val => {
 
 
 
-```
+```javascript
 const length$ = Rx.Observable.fromEvent(length, 'keyup')
 	.pluck('target', 'value')
 	// 300ms 之内的动作不理会的
@@ -359,7 +366,7 @@ distinctUtilChanged 跟前一个元素对比，一样的话，过滤掉，对劣
 
 Distinct 要小心使用，无尽序列一直监控会极大地消耗内存
 
-```
+```javascript
 const length$ = Rx.Observable.fromEvent(length, 'keyup')
 	.pluck('target', 'value')
 	.distinct()
@@ -380,7 +387,7 @@ concat 对接，第一个流排放到新的流里边之后，再把第二个流�
 
 startWith 默认值，一开始就发射出来
 
-```
+```javascript
 const length$ = Rx.Observable.fromEvent(length, 'keyup')
 	.pluck('target', 'value')
 const width$ = Rx.Observable.fromEvent(width, 'keyup')
@@ -394,7 +401,7 @@ merge$.subscribe(val => {
 
 startWith 赋初始值，避免流一开始没有值
 
-```
+```javascript
 const width$ = Rx.Observable.fromEvent(width, 'keyup')
 	.pluck('target', 'value')
 const length$ = Rx.Observable.fromEvent(length, 'keyup')
@@ -408,7 +415,7 @@ merge$.subscribe(val => {
 
 
 
-```
+```javascript
 const width$ = Rx.Observable.fromEvent(width, 'keyup')
 	.pluck('target', 'value')
 const first$ = Rx.Observable.from([1, 2, 3, 4]).startWith(0)
@@ -427,7 +434,7 @@ merge$.subscribe(val => {
 
 combineLatest 组成新流的两个或多个原始流中每个有新元素出现，会按照一定的规则，将其他流中最后的那个元素生成一个新元素放到新的流中。
 
-```
+```javascript
 const width$ = Rx.Observable.fromEvent(width, 'keyup')
 	.pluck('target', 'value')
 const length$ = Rx.Observable.fromEvent(length, 'keyup')
@@ -441,7 +448,7 @@ merge$.subscribe(val => {
 
 withLatestFrom，是一个流为主体，当这个流中产生新的元素的时候，去另外一个流中取元素。
 
-```
+```javascript
 const width$ = Rx.Observable.fromEvent(width, 'keyup')
 	.pluck('target', 'value')
 const length$ = Rx.Observable.fromEvent(length, 'keyup')
@@ -457,7 +464,7 @@ merge$.subscribe(val => {
 
 zip 是严格要求成对的，各自都要产生一个元素，才能在新的流中生成一个元素。我的第一个和你的第一个对齐，我的第二个和你的第二个对齐，最慢的流决定最终的速度
 
-```
+```javascript
 const width$ = Rx.Observable.fromEvent(width, 'keyup')
 	.pluck('target', 'value')
 const length$ = Rx.Observable.fromEvent(length, 'keyup')

@@ -2,9 +2,9 @@
 title: 学习 HTTP 协议
 date: 
 categories:
-- 临时
+- 计算机网络
 tags:
-- 临时
+- http
 ---
 
 

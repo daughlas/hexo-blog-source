@@ -10,7 +10,7 @@ tags:
 
 # vue-cli3 打包优化
 ## 代码压缩
-```
+```javascript
 configureWebpack: config => {
   if (process.env.NODE_ENV === 'production') {
     // 为生产环境修改配置...
@@ -33,7 +33,7 @@ configureWebpack: config => {
 ```
 
 ## 防止 cli3 进入页面的时候加载太多请求
-```
+```javascript
 chainWebpack: config => {
   // 移除 prefetch 插件
   config.plugins.delete('prefetch')
@@ -43,7 +43,7 @@ chainWebpack: config => {
 ```
 
 ## CDN 引入
-```
+```javascript
 // vue.config.js
 const isProduction = process.env.NODE_ENV === 'production';
 const cdn = {
@@ -77,7 +77,7 @@ module.exports = {
 
 html 文件也要修改
 
-```
+```javascript
  <!-- 使用CDN的JS文件 -->
 <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.js) { %>
   <link href="<%= htmlWebpackPlugin.options.cdn.js[i] %>" rel="preload" as="script">
@@ -85,7 +85,7 @@ html 文件也要修改
 ```
 
 ## 关闭生产环境 sourceMap
-```
+```javascript
 module.exports = {
   configureWebpack: config => {
 
@@ -95,7 +95,7 @@ module.exports = {
 
 
 ## 配置别名
-```
+```javascript
 module.exports = {
   configureWebpack: config => {
     if (isProduction) {
@@ -109,7 +109,7 @@ module.exports = {
 
 
 ## 压缩代码
-```
+```javascript
 module.exports = {
   chainWebpack: config => {
     if (isProduction) {
@@ -122,7 +122,7 @@ module.exports = {
 
 
 ## 关闭生产环境 sourceMap
-```
+```javascript
 module.exports = {
   configureWebpack: config => {
     
@@ -132,7 +132,7 @@ module.exports = {
 
 
 ## 关闭生产环境 sourceMap
-```
+```javascript
 module.exports = {
   configureWebpack: config => {
     

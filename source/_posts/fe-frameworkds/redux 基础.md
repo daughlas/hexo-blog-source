@@ -47,7 +47,7 @@ Redux = Reducer + Flux
 
 src/ToDoList.js
 
-```jsx
+```javascript
 import React, { Component } from 'react'
 import 'antd/dist/antd.css'
 import { Input, Button, List } from 'antd'
@@ -122,7 +122,7 @@ export default TodoList
 
 src/store/index.js
 
-```js
+```javascript
 import { createStore } from 'redux'
 import reducer from './reducer'
 
@@ -140,7 +140,7 @@ src/store/reducer.js
 
 注意：**reducer 可以接受 state，但是绝对不能修改 state**
 
-```js
+```javascript
 const defaultState = {
   inputValue: '',
   list: []
@@ -176,7 +176,7 @@ src/store/actionTypes.js
 
 这样可以让我们更容易发现错误，常量和变量写错了，代码会迅速报错，但是写一个字符串就很难排查错误了
 
-```
+```javascript
 export const CHANGE_INPUT_VALUE = 'change_input_value'
 export const ADD_TODO_ITEM = 'add_todo_item'
 export const DELETE_TODO_ITEM = 'delete_todo_item'
@@ -188,7 +188,7 @@ export const DELETE_TODO_ITEM = 'delete_todo_item'
 
 不正规方法
 
-```
+```javascript
 const action = {
   type: DELETE_TODO_ITEM,
   value: index
@@ -198,7 +198,7 @@ store.dispatch(action)
 
 正规的方法
 
-```
+```javascript
 import { CHANGE_INPUT_VALUE } from './actionTypes'
 export const getInputChangeAction = (value) => {
   return {
@@ -219,7 +219,7 @@ export const getInputChangeAction = (value) => {
 
 #### 原则二 只有 store 能够改变自己的内容
 
-```js
+```javascript
 export default (state = defaultState, action) => {
   if (action.type === 'change_input_value') {
     const newState = JSON.parse(JSON.stringify(state))
@@ -257,7 +257,7 @@ reducer 可以接受 state，但是绝不能修改 state
 
 * UI 组件：傻瓜组件，处理渲染
 
-```js
+```javascript
 import React, {Component} from 'react'
 import { Input, Button, List } from 'antd'
 
@@ -291,7 +291,7 @@ export default TodoListUI
 
 * 容器组件：聪明组件，处理逻辑
 
-```js
+```javascript
 import React, { Component } from 'react'
 import 'antd/dist/antd.css'
 import store from './store'
@@ -356,7 +356,7 @@ export default TodoList
 
 src/TodoListUI.js
 
-```js
+```javascript
 import React, {Component} from 'react'
 import { Input, Button, List } from 'antd'
 
@@ -401,7 +401,7 @@ redux 的一个中间件，可以把异步请求放入 redux 的 action 里边�
 
 src/store/index.js
 
-```js
+```javascript
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import reducer from './reducer'
@@ -425,7 +425,7 @@ export default store
 
 src/store/actionCreators.js
 
-```js
+```javascript
 // ...
 export const getTodoList = () => {
   return (dispatch) => {
@@ -441,7 +441,7 @@ export const getTodoList = () => {
 
 src/TodoList.js
 
-```js
+```javascript
 // ...
 class TodoList extends Component {
   // ...

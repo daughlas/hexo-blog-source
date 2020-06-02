@@ -13,7 +13,7 @@ tags:
 有两种相同的写法
 写法一：
 
-```
+```typescript
 class Person {
     name;
 
@@ -25,7 +25,7 @@ class Person {
 
 写法二： 
 
-```
+```typescript
 // 构造函数里面要明确书写访问控制符，否则会报错
 class Person {
     constructor(public name:string) {
@@ -39,7 +39,7 @@ super 调父类的构造函数
 
 
 
-```
+```typescript
 var node = document.createTextNode('');
 ```
 
@@ -61,7 +61,7 @@ var node = document.createTextNode('');
    2. ${expr}
 2. 在 TypeScirpt 中，可以用 void 表示没有任何返回值的函数
 
-```ts
+```typescript
 function alertName(): void {
   alert('My name is xcatliu');
 }
@@ -76,7 +76,7 @@ function alertName(): void {
    注意，这样的定义只能访问到它们共有的类型和方法
 3. 在面向对象语言中，接口（Interfaces）是一个很重要的概念，它是对行为的抽象，而具体如何行动需要由类（classes）去实现（implements）。
 
-```ts
+```typescript
 interface Person {
   name: string;
   age: number;
@@ -92,7 +92,7 @@ let xcatliu: Person = {
 
 有时候我们希望对象中的一些字段只能在创建的时候被赋值，那么可以用 readonly 定义只读属性：
 
-```ts
+```typescript
 interface Person {
     readonly id: number;
     name: string;
@@ -115,7 +115,7 @@ xcatliu.id = 9527;
 
 在 TypeScript 的类型定义中，=> 用来表示函数的定义，左边是输入类型，需要用括号括起来，右边是输出类型。
 
-```ts
+```typescript
 // 函数声明
 function sum(x: number, y: number): number {
   return x + y;
@@ -129,7 +129,7 @@ let mySum: (x: number, y: number) => number = function (x: number, y: number): n
 
 用？ 的可选参数，调用函数的时候可以不传，可选参数必须接在必需参数后面。
 
-```ts
+```typescript
 function buildName(firstName: string, lastName?: string) {
   if (lastName) {
     return firstName + ' ' + lastName;
@@ -145,7 +145,7 @@ let xcat = buildName(undefined, 'Xcat');
 
 这个时候，不再必须让可选参数必须放在必需参数后面
 
-```ts
+```typescript
 function buildName(firstName: string, lastName: string = 'Liu') {
     return firstName + '' + lastName;
 }
@@ -156,7 +156,7 @@ let xcat = buildName('Xcat');
 
 1. ES6 中，可以使用 ...rest 的方式获取函数中的剩余参数（rest 参数）：
 
-```ts
+```typescript
 function push(array, ...items) {
   items.forEach(function(item) {
     array.push(item);
@@ -169,7 +169,7 @@ push(a, 1, 2, 3);
 
 事实上，items 是一个数组。所以我们可以用数组的类型来定义它：
 
-```ts
+```typescript
 function push(array: any[], ...items: any[]) {
   items.forEach(function(item) {
     array.push(item);
@@ -186,7 +186,7 @@ push(a, 1, 2, 3);
 
 1. 类型断言:在需要断言的变量前加上 <Type> 即可,
 
-```ts
+```typescript
 function getLength(something: string | number): number {
     if (<string>something).length {
         return (<string>something).length;
@@ -198,7 +198,7 @@ function getLength(something: string | number): number {
 
 1. 内置对象是指根据标准在全局作用域（Global）上存在的对象。这里的标准是指 ECMAScript 和其他环境（比如 DOM）的标准。
 
-```ts
+```typescript
 let b: Boolean = new Boolean(1);
 let e: Error = new Error('Error occurred');
 let d: Date = new Date();

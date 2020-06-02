@@ -20,7 +20,7 @@ tags:
 
 grep 过滤，-v 不包含，反转一下
 
-```
+```bash
 cat anaconda-ks.cfg | grep "net" | grep -v "off"
 ```
 
@@ -39,14 +39,14 @@ user add
 * -s 用户登录的shell 文件
 * -u 用户号
 
-```
+```bash
 groupadd ljs
 useradd -s /bin/sh -g ljw -G adm,root ljw
 ```
 
 ### 删除账户
 
-```
+```bash
 userdel -r ljw
 
 userdel ljw
@@ -105,7 +105,7 @@ exit 退出当前所有用户
 
 修改 /etc/sudoers
 
-```
+```bash
 user1 	ALL=(ALL)		NOPASSWD: /bin/mkdir,/bin/rm
 ```
 
@@ -151,7 +151,7 @@ mkdir
 
 -p 创建多级目录
 
-```
+```bash
 mkdir test_dir/child_1/child_2/child_3
 ```
 
@@ -217,19 +217,19 @@ wc （word count） -l（line）-c(character)
 
 查看当前目录下的文件数量（不包含子目录中的文件）
 
-```
+```bash
 ls -l | grep "^-" | wc
 ```
 
 查看当前目录下的文件数量（包含子目录的文件），注意，R，代表递归子目录
 
-```
+```bash
 ls -lR | grep "^-" | wc
 ```
 
 使用通配符查询目录下的所有文件数量
 
-```
+```bash
 ls -lR 20161124*/ | grep "^-" | wc -l
 ```
 
@@ -292,7 +292,7 @@ ctime(change time) 最后一次改变文件或目录的时间
 
 find path [-option] [-print] [exec -ok command] {} \
 
-```
+```bash
 # ls -l a*
 # find -name a
 # find -name "a*"

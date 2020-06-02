@@ -17,7 +17,7 @@ ApplicationRef 监听 NgZone 的 onTurnDone，然后执行检测
 
 angular CD 有两种策略，默认策略（把整个树跑一遍），OnPush策略（除非我的属性发生变化，否则不用来检查我了，大的应用可以显著提高应用性能）。
 
-```
+```javascript
 @Component({
   ...
   changeDetection: ChangeDetectionsStrategy.Default
@@ -29,7 +29,7 @@ angular CD 有两种策略，默认策略（把整个树跑一遍），OnPush策
 
 如何主动告诉 angular 来检查我
 
-```
+```javascript
 constructor(
 	private cd: ChangeDetectorRef
 ) {
@@ -51,7 +51,7 @@ doSomethingNeedChangeDetection() {
 问题 Person 类，需要清清楚楚知道 Id 和 Address 的细节和构造方式，Id 或者 Address 重构之后，很麻烦
 而且以后用的多了之后，重构修改起来很麻烦
 
-```
+```javascript
 class Id {
   static getInstance(type: string) {
     // 省略了一些设置
@@ -87,7 +87,7 @@ class Person {
 
 ### 2.2 依赖注入的写法
 
-```
+```javascript
 class Id {
   static getInstance(type: string) {
     // 省略了一些设置
@@ -122,7 +122,7 @@ class Person {
 
 伪代码，原理就是一级一级向上推，把责任推给入口函数，依赖注入框架可以帮我们处理这个事情
 
-```
+```javascript
 main() {
 	const id = Id.getInstance('idcard');
     const address = new Address('北京', '北京', '朝阳区', '某某街道');
@@ -132,7 +132,7 @@ main() {
 
 ### 2.3 利用 angular 的依赖注入
 
-```
+```javascript
 class PersonAngularDI {
   constructor(private oc: OverlayContainer) {
     const injector = ReflectiveInjector.resolveAndCreate([
@@ -180,7 +180,7 @@ class PersonAngularDIInstance {
 
 BrowserAnimationModule 放在最后导入，先导入可能会引起异常
 
-```
+```javascript
 trigger(
 'square', [
 state('green', style({
@@ -217,7 +217,7 @@ Void 空状态
 
 同时进行一组的动画变换。
 
-```
+```javascript
 group([animate(...), animate(...) ...])
 ```
 
@@ -235,19 +235,19 @@ Stagger 指定有多个满足 Query 的元素的动画分别播放，每个的�
 
 新增一项
 
-```
+```javascript
 this.projects = [...this.projects, {id: 3, name: '新增'}]
 ```
 
 删除一项
 
-```
+```javascript
 this.projects = this.projects.filter(p => p.id !== project.id)
 ```
 
 ## 第 4 部分 属性型指令
 
-```
+```javascript
 import { Directive, ElementRef } from '@angular/core';
 @Directive({selector: '[highlight]'})
 export class HighlightDirective {
@@ -266,7 +266,7 @@ export class HighlightDirective {
 
 指令、组件，作为 NgModule 元数据中的 declarations 导入。
 
-```
+```javascript
 declarations: [
   AppComponent,
   HighlightDirective,
@@ -275,7 +275,7 @@ declarations: [
 
 ## 第 5 部分 自定义组件
 
-```
+```javascript
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -290,7 +290,7 @@ export class TitleComponent {
 
 引入自定义组件，作为 NgModule 元数据中的 declarations 导入。
 
-```
+```javascript
  @NgModule({
   imports:      [ BrowserModule ],
   declarations: [ AppComponent, HighlightDirective,TitleComponent, ],
@@ -401,7 +401,7 @@ export class AppModule { }
 
 ### 定义带参数的路由
 
-```
+```javascript
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 
@@ -413,7 +413,7 @@ export const ROUTES: Routes = [
 
 ### 获取路由的参数
 
-```
+```javascript
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -436,7 +436,7 @@ export class SettingsComponent implements OnInit {
 
 ### 子路由的例子
 
-```
+```javascript
 import { SettingsComponent } from './settings/settings.component';
 import { ProfileSettingsComponent } from './settings/profile/profile.component';
 import { PasswordSettingsComponent } from './settings/password/password.component';

@@ -2,9 +2,9 @@
 title:  学习 MyBatis
 date: 
 categories:
-- 临时
+- 数据库
 tags:
-- 临时
+- ORM
 ---
 
 ### 传统 JDBC 程序的设计缺陷

@@ -86,7 +86,7 @@ ReactDOM.render(<CustomTextInput/>, document.getElementById('app'))
 
 
 
-```
+```javascript
 class CustomTextInput extends React.Component{
 	constructor(props) {
 		super(props)

@@ -23,7 +23,7 @@ vim /etc/yum.repos.d/CentOS-163.repo，并且将 yum 文件复制进去
 
 #### 临时修改
 
-```
+```bash
 hostname [新主机名]
 ```
 
@@ -31,13 +31,13 @@ hostname [新主机名]
 
 修改这个就无效了
 
-```
+```bash
 vim /etc/sysconfig/network
 ```
 
 要修改下面的文件 
 
-```
+```bash
 vim /ect/hostname
 ```
 
@@ -75,7 +75,7 @@ RTC 主板时间
 
 `timedatectl` 查看时间
 
-```
+```bash
 timedatectl set-timezone Asia/Shangehai // 修改操作系统的时间
 timedatectl set-local-rtc 1 // 将硬件的时间跟系统的时间保持一致
 timedatectl list-timezone
@@ -91,14 +91,14 @@ timedatectl list-timezone
 
 centos7 网卡命名默认是基于固件、拓扑、位置信息来分配，想要关闭它，配置
 
-```
+```bash
 vim /etc/sysconfig/grub
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
 修改
 
-```
+```bash
 GRUB_CMDLINE_LINUX=
 ....
 net.ifnames=0 biosdevname=0
@@ -110,7 +110,7 @@ net.ifnames=0 biosdevname=0
 
 查看网卡信息
 
-```
+```bash
 ip a 
 ```
 

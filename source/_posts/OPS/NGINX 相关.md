@@ -9,7 +9,7 @@ tags:
 
 ### nginx 如何开启gzip
 
-```
+```bash
   gzip on;
   gzip_buffers 32 4K;
   gzip_comp_level 6;

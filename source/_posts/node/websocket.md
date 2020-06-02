@@ -29,7 +29,7 @@ tags:
 6. socket 是插座的意思，象征着保持着通路，专业术语叫做套接字
 7. socket 的使用，输入之后http://localhost:3000/socket.io/socket.io.js 这个网址就会显示为一个 js 文件，此时需要配置html文档，创建一个页面，引入这个 js 文件 `<script src="/socket.io/socket.io.js"></script>` ，这是一个绝对地址，因为第一个 / 表示根路径。还要写一条语句 `<script>var socket = io()</script>`
 
-```js
+```javascript
 const http = require('http');
 
 let server = http.createServer((req, res) => {
@@ -54,7 +54,7 @@ server.listen(3000, () => {
 10. io.emit 广播，所有连接进来的人都会收到通知，默认是点对点，每一个连接进来的人都会创建一个专属于他的socket
 11. Express 和 socket.io 能特别方便的配合，固定的写法如下
 
-```js
+```javascript
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);

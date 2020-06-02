@@ -64,7 +64,7 @@ tags:
 2. require 一次相当于增加了一个顶层变量，所有的函数和变量都要为这个顶层变量打点。
 3. 前端代码的暴露，暴露的是个命名空间
 
-```js
+```javascript
 (function() {
     window.obj = {};
 
@@ -74,7 +74,7 @@ tags:
 
 4. 可以用一个 Javascript 文件描述一个类，用 `module.exports = 构造函数名` 的方式暴露一个类，People 是一个构造函数，可以new出新对象
 
-```js
+```javascript
 function People(name, sex, age) {
     this.name = name;
     this.sex = sex;
@@ -99,7 +99,7 @@ module.exports = People;
 
 1. post 请求是怎么玩的
 
-```js
+```javascript
 var postData = "";
 
 req.addListener('data', function(chunk) {

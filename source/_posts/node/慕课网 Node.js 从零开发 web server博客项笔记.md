@@ -50,7 +50,7 @@ tags:
 
 a.js
 
-```js
+```javascript
 function add(a, b) {
     return a + b
 }
@@ -61,14 +61,14 @@ module.expors = add
 
 b.js
 
-```js
+```javascript
 const add = require('./a')
 cosnt sum = add(10, 20)
 ```
 
 c.js
 
-```
+```javascript
 function add(a, b) {
     return a + b
 }
@@ -83,7 +83,7 @@ module.expors = {
 
 d.js
 
-```js
+```javascript
 const { add, mul } = require('./c.js')
 const sum = add (100, 200)
 const result = mul(10, 20)
@@ -96,7 +96,7 @@ console.log(sum, result)
 
 `npm install loadash --save`
 
-```js
+```javascript
 const _ = require('lodash)
 const arr = _.concat([1, 2], 3)
 console.log('arr...', arr)
@@ -116,7 +116,7 @@ console.log('arr...', arr)
 
 vs code debug 的时候，会找到 package.json 里边 main 指向的主文件开始调试
 
-```js
+```javascript
 const http = require('http')
 
 const server = http.crateServer((req, res) => {
@@ -235,7 +235,7 @@ server.listen(300, () => {
 * 通过 querystring 来传递数据，如a.html?a=100&b=200
 * 浏览器直接访问地址，发送 get 请求
 
-```
+```javascript
 const http = require('http')
 const querystring = require('querystring')
 
@@ -251,7 +251,7 @@ server.listen(8000)
 
 ### 4-3 处理post请求
 
-```
+```javascript
 const http = require('http')
 
 const server = http.createServer((req, res) => {
@@ -277,7 +277,7 @@ server.listen(8000, () => {
 
 ### 4-4 处理http请求的综合示例
 
-```js
+```javascript
 const http = require('http')
 const querystring = require('querystring')
 
@@ -367,7 +367,7 @@ https://dev.mysql.com/downloads/workbench/
 
 ![image-20190521131747841](/Users/lvjiawen/Library/Application Support/typora-user-images/image-20190521131747841.png)
 
-```
+```SQL
 CREATE TABLE `myblog`.`users` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(20) NOT NULL,
@@ -376,7 +376,7 @@ CREATE TABLE `myblog`.`users` (
   PRIMARY KEY (`id`));
 ```
 
-```
+```SQL
 CREATE TABLE `myblog`.`blogs` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(50) NOT NULL,
@@ -395,7 +395,7 @@ CREATE TABLE `myblog`.`blogs` (
 
 ##### 插入
 
-```
+```SQL
 insert into users (username, `password`, realname) values ('zhangsan', '123', '张三');
 ```
 
@@ -441,7 +441,7 @@ like 语句，模糊查询
 
 开发中删除操作，一般是加一个状态的
 
-```sql
+```SQL
 ALTER TABLE `myblog`.`users` 
 ADD COLUMN `state` INT NOT NULL DEFAULT 1 AFTER `realname`;
 ```
@@ -461,7 +461,7 @@ ADD COLUMN `state` INT NOT NULL DEFAULT 1 AFTER `realname`;
 * select 语句返回的都是数组
 * update, delete, insert返回的如下
 
-```
+```javascript
 {
     fieldCount: 0,
     affectedRows: 1,
@@ -512,7 +512,7 @@ ADD COLUMN `state` INT NOT NULL DEFAULT 1 AFTER `realname`;
 
 追加
 
-```
+```javascript
 document.cookie = 'k1=100';
 document.cookie = 'k2=200';
 ```
@@ -626,7 +626,7 @@ index.js
 
 `npm i redis --save`
 
-```js
+```javascript
 const redis = require('redis')
 
 
@@ -691,7 +691,7 @@ Mac: /usr/local/etc/nginx/nginx.conf
 * 修改第三行 `worker_processes 2;` 多核可以启动多个进程
 * 修改 server 
 
-```
+```javascript
 server {
 	listen      8080;
 	...
@@ -767,7 +767,7 @@ server {
 
 代码示例
 
-```js
+```javascript
 const http = require('http')
 const server = http.createServer((req, res) => {
 	if (req.method==='POST') {
@@ -836,7 +836,7 @@ server.listen(8000)
 
 转换特殊符号
 
-```
+```javascript
 & => &amp;
 < => &lt;
 > => &gt;
@@ -855,7 +855,7 @@ server.listen(8000)
 * 危害：获取用户名和密码，再去尝试登录其他系统
 * 预防措施，将密码加密
 
-```
+```javascript
 const crypto = require('crypto')
 
 // 密钥
@@ -965,7 +965,7 @@ express 是 Node.js 最常用的 web server 框架
 
 ### 10-15 中间件代码实现
 
-```js
+```javascript
 const http = require('http')
 const slice = Array.prototype.slice
 
@@ -1076,7 +1076,7 @@ module.exports = () => {
 
 ### async / await 语法介绍
 
- ```
+```javascript
 const fs = require('fs')
 const path = require('path')
 
@@ -1136,7 +1136,7 @@ readFileData()
 
 #### Koa 2 路由介绍
 
-```
+```javascript
 router.prefix('/users')
 
 router.get('/', async (ctx, next) => {
@@ -1175,7 +1175,7 @@ router.get('/json', async (ctx, next) => {
 
 洋葱圈模型
 
-```
+```javascript
 const http = require('http')
 
 // 组合中间件
@@ -1317,7 +1317,7 @@ pm2 遇到进程崩溃，会自动重启
 
 pm2.config.json
 
-```
+```javascript
 {
   "name": "pm2-test-server",
   "script": "app.js",

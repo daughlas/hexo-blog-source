@@ -86,14 +86,14 @@ define(function(require, module, exports) {
     4. 清除缓存 `delete require.cache.[模块名]`或者高级的 `Object.keys(require.cache).forEach((key)=>{delete require.cache[key]})`;
 19. 一般我们使用的时候很少暴露属性，都是暴露行为的，可控程度更高 。
 
-```js
+```javascript
 console.log("执行了");
 module.exports = new Date();
 ```
 
 上面这样写，第一次的时候会执行这段代码，再引用就不会了，解决的办法如下
 
-```js
+```javascript
 module.exports = () => {
     console.log("执行了");
     return new Date();

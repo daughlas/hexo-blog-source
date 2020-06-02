@@ -16,7 +16,7 @@ bind ，每次会返回一个新的函数的引用，想引用同一个函数的
 
 > 错误的做法
 
-```
+```javascript
 class PauseMenu extends React.Component {
 	componentWillMount() {
 		AppStateIOS.addEventListener('change', this.onAppPaused.bind(this))
@@ -30,7 +30,7 @@ class PauseMenu extends React.Component {
 
 > 正确的做法
 
-```
+```javascript
 class PauseMenu extends React.Component {
 	constructor(props) {
 		super(props)
@@ -48,7 +48,7 @@ class PauseMenu extends React.Component {
 
 还可以
 
-```
+```javascript
 class PauseMenu extends React.Component {
 	componentWillMount() {
 		AppStateIOS.addEventListener('change', this.onAppPaused
@@ -66,7 +66,7 @@ class PauseMenu extends React.Component {
 
 从数组中获取值，并赋值到变量中，变量的顺序与数组中对象顺序对应
 
-```
+```javascript
 var foo = [1, 2, 3, 4]
 var [one, two, three] = foo
 console.log(one, two, three)
@@ -80,7 +80,7 @@ console.log(a, b)
 
 如果没有从数组中取到值，可以为变量设置一个默认值
 
-```
+```javascript
 var a, b
 
 [a=5, b=7] =[1]
@@ -89,7 +89,7 @@ console.log(a, b)
 
 通过解构赋值还可以方便的交换两个变量的值
 
-```
+```javascript
 var a = 1,b = 3;
 [a,b] = [b, a]
 console.log(a, b)
@@ -97,7 +97,7 @@ console.log(a, b)
 
 #### 获取对象中的值
 
-```
+```javascript
 const student = {
 	name: 'Lvjiawen',
 	age: 18,
@@ -113,7 +113,7 @@ console.log(name, age, city)
 
 > 函数调用
 
-```js
+```javascript
 var iterableObj = ['my', 'name', 'is', 'lvjiawe']
 function myFunction() {
 	console.log(arguments) // ['my', 'name', 'is', 'lvjiawe']
@@ -132,7 +132,7 @@ console.log(sum(...numbers)) // 6
 
 没有展开语法的时候，只能组合使用 push，splice，concat 等方法，来将已有数组元素变成新的数组的一部分，有了展开语法，构造新数组变得更简单
 
-```js
+```javascript
 var iterableObj = ['my', 'name', 'is', 'lvjiawen']
 var arr = [...iterableObj, '4', ...'hello',6]
 console.log(arr) // ["my", "name", "is", "lvjiawen", "4", "h", "e", "l", "l", "o", 6]
@@ -144,7 +144,7 @@ var arr3 = [...arr1, ...arr2] // 等同于 var arr3 = arr1.concat(arr2)
 
 > 构造对象时，进行克隆或者属性拷贝
 
-```js
+```javascript
 let obj =  {name: 'Lvjiawen', age: 18, like: {film: 'one world'}}
 var obj2 = {hello: 'world'}
 let objClone = {...obj}
@@ -160,7 +160,7 @@ console.log(arr, arr2)	// [1, 2, 3] ,  [1, 2, 3, 4]
 
 > React 中的应用
 
-```
+```javascript
 var params = {param1: 123, param2: 456, param3: 789}
 var {type, ...other} = params
 <Comp type='normal' {...other}></Comp> // 相当于<Comp type='normal' param2={456} param3={789}></Comp>
@@ -170,7 +170,7 @@ var {type, ...other} = params
 
 ### Promise
 
-```
+```javascript
 var waitSecond = new Promise(function(resolve, reject) {
 	setTimeout(resolve, 1000)
 })
@@ -179,7 +179,7 @@ waitSecond.then(_ => {console.log('1 second passed')})
 
 ### let 和 const
 
-```
+```javascript
 {var a = 10};console.log(a); // 10
 {let b = 100};console.log(b); // ReferenceError
 ```
@@ -190,7 +190,7 @@ waitSecond.then(_ => {console.log('1 second passed')})
 
 返回 true 或者 false
 
-```
+```javascript
 arr.includes(0) // 等价于 arr.indexOf(0) >=0
 ```
 
@@ -206,7 +206,7 @@ arr.includes(0) // 等价于 arr.indexOf(0) >=0
 
 不使用 async await
 
-```
+```javascript
 function login(userName) {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {resolve('1001')}, 600)
@@ -248,7 +248,7 @@ doLogin2()
 
 > 获取异步函数的返回值
 
-```
+```javascript
 function charCount(data) {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
@@ -269,7 +269,7 @@ const result = await charCountAdd(null, 'world').then(res=> console.log(res)).ca
 
 > async / await 在并发场景中的应用
 
-```
+```javascript
 function charCount(data) {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
@@ -291,7 +291,7 @@ charCountAdd('hello', 'world').then(res=> console.log(res)).catch(err => console
 
 与 Ojbect.keys() 类似，返回自身属性的所有值，不包括继承的值
 
-```
+```javascript
 var obj = {a: 1, b: 2, c: 3}
 console.log(Object.keys(obj)) // ["a", "b", "c"]
 console.log(Object.values(obj)) // [1, 2, 3]

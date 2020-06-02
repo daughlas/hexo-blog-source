@@ -16,7 +16,7 @@ tags:
 
 ## 代码
 
-```
+```javascript
 function myNew(ctor) {
   if (typeof ctor !== 'function') {
     throw 'new Operator need a function param'

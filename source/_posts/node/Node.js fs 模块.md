@@ -46,7 +46,7 @@ tags:
 
 15. **注意：赋值语句先执行右边的部分，所以不能循环定义**
 
-    ```js
+    ```javascript
         var p = {
             xp : null;
         }
@@ -64,7 +64,7 @@ tags:
 
 4. 异步调用
 
-   ```js
+   ```javascript
    console.time('async');
    console.log('async start');
    fs.readFile('./2012.txt', 'utf8', (err,result) => {
@@ -76,7 +76,7 @@ tags:
 
 5. 同步调用
 
-   ```js
+   ```javascript
    console.time('sync');
    console.log('sync start');
    try {
