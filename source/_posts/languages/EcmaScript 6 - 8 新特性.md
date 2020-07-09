@@ -1,5 +1,5 @@
 ---
-title: ES 5 / 6 / 7 / 8 新特性
+title: EcmaScript 6 - 8 新特性
 date: 
 categories:
 - 编程语言
@@ -8,7 +8,6 @@ tags:
 - ES
 ---
 
-## ES 5 / 6 / 7 / 8 新特性
 
 ### 箭头函数
 
