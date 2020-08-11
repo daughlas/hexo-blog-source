@@ -1,11 +1,9 @@
 ---
 title: ES5 的面向对象编程
-date: 
-categories:
-- 编程语言
-tags:
-- 编程语言
-- javascript
+date: 2017-01-03 18:16:13
+categories: [编程语言]
+tags: [编程语言, javascript]
+front-matter: 我是一个测试的文章摘要
 ---
 
 1. 用对象的思想去写代码，就是面向对象编程

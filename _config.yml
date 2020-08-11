@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 吕嘉文的小栈
-subtitle: ''
-description: '纪律生活、工作、学习的点点滴滴'
+title: 嘉文小栈
+subtitle: '每天进步一点点'
+description: '记录生活、工作、学习的点点滴滴'
 keywords:
 author: 吕嘉文
-language: en
+language: zh-CN
 timezone: ''
 
 # URL
@@ -46,8 +46,8 @@ relative_link: false
 future: true
 highlight:
   enable: false
-  # line_number: false
-  auto_detect: true
+  # line_number: true
+  # auto_detect: true
   # tab_replace: ''
   # wrap: true
   # hljs: false
@@ -93,7 +93,25 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: 3-hexo
+# theme: ayer
+theme: next
+
+favicon:
+  small: /images/favicon-16x16.png
+  medium: /images/favicon-32x32.png
+  apple_touch_icon: /images/apple-touch-icon.png
+  ms_browserconfig: /images/browserconfig.xml
+
+prism_plugin:
+  mode: 'preprocess'
+  theme: 'tomorrow'
+  line_number: false
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
