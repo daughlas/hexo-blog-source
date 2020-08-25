@@ -1,5 +1,5 @@
 ---
-title: 《你不知道的 Javascript》 作用域与闭包读书笔记
+title: javascript(1) - 作用域和闭包
 date: 
 categories: [编程语言]
 tags: [编程语言, javascript, 待续, 摘录]

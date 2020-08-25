@@ -1,12 +1,16 @@
 ---
-title: 《JAVA 核心技术》读书笔记
-date: 
+title: java(4) - 类与对象
+date: 2020-04-03 11:23:30
 categories:
 - 编程语言
 tags:
 - 编程语言
 - java
 ---
+
+> 摘要：这是 《JAVA 核心技术》 第 4 章 类与对象
+
+<!--more-->
 
 
 # 第 4 章 类与对象
@@ -216,7 +220,7 @@ class Employee {
 
 LocalDate.now 和 LocalDate.of 就是工厂方法，他们是 LocalDate 的类静态工厂方法
 
-```
+```java
 NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
 NumberFormat percentFormatter = NumberFormat.getPercentInstance();
 double x = 0.1;
